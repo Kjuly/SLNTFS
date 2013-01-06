@@ -16,7 +16,6 @@
 	ProcessHelper * procInfo = [[ProcessHelper alloc] init];
 	[procInfo obtainFreshProcessList]; // Get a list of process
 	BOOL daemonLaunched = [procInfo findProcessWithName:@"SLNTFS Daemon"];
-	[procInfo release];
 	return daemonLaunched;
 }
 

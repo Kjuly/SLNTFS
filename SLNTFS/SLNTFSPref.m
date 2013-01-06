@@ -74,8 +74,8 @@
   
 	/* About configuration */
 	NSAttributedString * about =
-  [[[NSAttributedString alloc] initWithPath:[[self bundle] pathForResource:@"Read Me" ofType:@"rtf"]
-                         documentAttributes:nil] autorelease];
+  [[NSAttributedString alloc] initWithPath:[[self bundle] pathForResource:@"Read Me" ofType:@"rtf"]
+                         documentAttributes:nil];
 	[[_aboutView textStorage] setAttributedString:about];
 	
 	/* Notifications configuration */
@@ -86,8 +86,6 @@
 
 - (void)didUnselect {
 	[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
-	[_disks release];
-	[_fstabParser release];
 	CFRelease(_bundleIdentifier);
 }
 
@@ -120,7 +118,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 				str = [NSString stringWithFormat:@"%@/disk_internal.icns", ressourcePath];
 			else
 				str = [NSString stringWithFormat:@"%@/disk_external.icns", ressourcePath];
-			return [[[NSImage alloc] initWithContentsOfFile:str] autorelease];
+			return [[NSImage alloc] initWithContentsOfFile:str];
     }
   }
   return nil;
@@ -347,9 +345,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		NTFSDisk * disk = [[NTFSDisk alloc] initWithDiskutilInfo:info];
 		[_disks addObject:disk];
 		NSLog(@"disk name = %@", disk.Name);
-		[disk release];
 	}
-	[info release];
 }
 
 - (void)setInstalledVersionString {

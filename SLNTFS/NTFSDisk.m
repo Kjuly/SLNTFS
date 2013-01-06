@@ -39,24 +39,17 @@
 }
 
 - (void)dealloc {
-	[_uuid release];
-	[_name release];
-	[_device release];
-	[_deviceIdentifier release];
-	[_deviceNode release];
-	[_mountPoint release];
 	CFRelease(_session);
 	CFRelease(_disk);
-	[super dealloc];
 }
 
 - (void)clearVars {
-	NICE_RELEASE(_name);
-	NICE_RELEASE(_uuid);
-	NICE_RELEASE(_device);
-	NICE_RELEASE(_deviceIdentifier);
-	NICE_RELEASE(_deviceNode);
-	NICE_RELEASE(_mountPoint);
+//	NICE_RELEASE(_name);
+//	NICE_RELEASE(_uuid);
+//	NICE_RELEASE(_device);
+//	NICE_RELEASE(_deviceIdentifier);
+//	NICE_RELEASE(_deviceNode);
+//	NICE_RELEASE(_mountPoint);
 	_protocol = P_SATA;
 	_internal = YES;
 	_ejectable = NO;
@@ -174,7 +167,6 @@
                           withArguments:[NSArray arrayWithObjects:@"info", _deviceNode, nil]];
 	NSString * info = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 	[self parseInfo:info];
-	[info release];
 }
 
 @end

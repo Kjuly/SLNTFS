@@ -20,10 +20,6 @@ typedef struct kinfo_proc kinfo_proc;
 	return self;
 }
 
-- (void)dealloc {
-	[_processList release];
-	[super dealloc];
-}
 
 - (NSInteger)getBSDProcessList:(kinfo_proc **)procList
          withNumberOfProcesses:(size_t *)procCount {

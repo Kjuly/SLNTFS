@@ -19,7 +19,6 @@
 	
 	NSData * data = [file readDataToEndOfFile];
 	
-	[task release];
 	return data;
 }
 

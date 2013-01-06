@@ -33,10 +33,6 @@
 
 - (void)dealloc {
 	[self removeCopy];
-	[self->_copyPath release];
-	[self->_backupPath release];
-	[self->_lines release];
-	[super dealloc];
 }
 
 #pragma mark -
