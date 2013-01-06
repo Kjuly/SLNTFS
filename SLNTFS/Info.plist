@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.5</string>
+	<string>2.1.0</string>
 	<key>CFBundleSignature</key>
 	<string>NYXM</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.5</string>
+	<string>2.1.0</string>
 	<key>NSMainNibFile</key>
 	<string>SLNTFSPref</string>
 	<key>NSPrefPaneIconFile</key>
@@ -30,11 +30,11 @@
 	<string>SL-NTFS</string>
 	<key>NSPrincipalClass</key>
 	<string>SLNTFSPref</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
 	<key>SUFeedURL</key>
 	<string>http://whine.fr/Softs/SLNTFS/Appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
-	<key>SUEnableAutomaticChecks</key>
-	<true/>
 </dict>
 </plist>
