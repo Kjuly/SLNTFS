@@ -54,11 +54,11 @@ int main(int argc, const char * argv[]) {
 
 DADissenterRef diskDidMount(DADiskRef dsk, void * context) {
 	NSDictionary * SLNTFSpref = [NSDictionary dictionaryWithContentsOfFile:@"/Library/Preferences/slntfspref_copy.plist"];
-	if (SLNTFSpref)
+	if (SLNTFSpref) {
 		if (![[SLNTFSpref objectForKey:PREF_DAEMON] boolValue])
 			return NULL;
-	else
-		return NULL;
+  }
+	else return NULL;
 	NSString * name = [[NSString alloc] initWithUTF8String:DADiskGetBSDName(dsk)];
 	NSArray  * args = [[NSArray alloc] initWithObjects:@"info", name, nil];
 	[name release];
