@@ -9,6 +9,19 @@ SL-NTFS is a preference Pane that allow you to enable writing on NTFS disks via 
 
 Intel, Mac OS X 10.6 or later
 
+# Project Setup
+
+1. Edit Scheme;  
+2. Set the __"Executable"__ to __"System Preferences.app"__;  
+3. In __"Arguments"__ tab, add `$USER_LIBRARY_DIR/PreferencePanes/$FULL_PRODUCT_NAME` on __"Arguments Passed On Launch"__;  
+4. Set `SLNTFS` as the __"Expand Variables Based On"__'s value;  
+5. Expand the Run/Debug scheme (click the little triangle button on the left), click on __"Pre-actions"__;  
+6. Add __"New Run Script Action"__:  
+
+        cp -a "$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME" "$USER_LIBRARY_DIR/PreferencePanes/"
+
+7. Okay, build & run.
+
 # Change Log
 
 __v2.1.x @ Dev__
