@@ -20,13 +20,13 @@ typedef enum {P_ATA, P_SATA, P_USB, P_FIREWIRE, P_ESATA, P_UNKNOW} VolProtocol;
 	/// SATA, ATA, USB...
 	VolProtocol _protocol;
 	/// Flag to indicate if the disk is internal or external
-	BOOL _internal;
+	BOOL _isInternal;
 	/// Flag to indicate if the disk is ejectable
-	BOOL _ejectable;
+	BOOL _isEjectable;
 	/// Flag to indicate if the volume is currently mounted
-	BOOL _mounted;
+	BOOL _isMounted;
 	/// Flag to indicate if the volume is writtable
-	NSUInteger _writtingEnabled;
+	NSUInteger _isWrittingEnabled;
 	/// Session
 	DASessionRef _session;
 	/// BSD Disk reference
@@ -57,9 +57,9 @@ typedef enum {P_ATA, P_SATA, P_USB, P_FIREWIRE, P_ESATA, P_UNKNOW} VolProtocol;
 #pragma mark General Methods
 
 - (void)parseInfo:(NSString *)info;
-- (NSString *)extractInfoFrom:(NSString *)info AtRange:(NSRange)range;
-- (BOOL)extractBooleanFrom:(NSString *)info AtRange:(NSRange)range;
-- (NSInteger)extractIntegerFrom:(NSString *)str AtRange:(NSRange)range;
+- (NSString *)extractInfoFrom:(NSString *)info atRange:(NSRange)range;
+- (BOOL)extractBooleanFrom:(NSString *)info atRange:(NSRange)range;
+- (NSInteger)extractIntegerFrom:(NSString *)str atRange:(NSRange)range;
 - (void)mount;
 - (void)unmount;
 - (void)updateStatus;

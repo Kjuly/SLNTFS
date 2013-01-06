@@ -74,8 +74,8 @@
   
 	/* About configuration */
 	NSAttributedString * about =
-  [[NSAttributedString alloc] initWithPath:[[self bundle] pathForResource:@"Read Me" ofType:@"rtf"]
-                         documentAttributes:nil];
+    [[NSAttributedString alloc] initWithPath:[[self bundle] pathForResource:@"Read Me" ofType:@"rtf"]
+                          documentAttributes:nil];
 	[[_aboutView textStorage] setAttributedString:about];
 	
 	/* Notifications configuration */
@@ -235,7 +235,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
       localizedStringForKey:@"DAEMON_STATUS" value:@"Change will take effect after reboot." table:nil]];
 }
 
-- (IBAction)ActionToPerformChanged:(id)sender {
+- (IBAction)actionToPerformChanged:(id)sender {
 #pragma unused(sender)
 	if (![_actionToPerform indexOfSelectedItem])
 		CFPreferencesSetAppValue((CFStringRef)PREF_ATP_KEY, (CFStringRef)PREF_ATP_OPT_ASK, _bundleIdentifier);

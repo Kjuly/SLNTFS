@@ -82,7 +82,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (IBAction)performMountingAction:(id)sender;
 - (IBAction)switchRights:(id)sender;
 - (IBAction)daemonStatusChanged:(id)sender;
-- (IBAction)ActionToPerformChanged:(id)sender;
+- (IBAction)actionToPerformChanged:(id)sender;
 - (IBAction)reset_fstab:(id)sender;
 - (IBAction)uninstall:(id)sender;
 

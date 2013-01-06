@@ -13,10 +13,10 @@
 @synthesize device = _device;
 @synthesize mountPoint = _mountPoint;
 @synthesize protocol = _protocol;
-@synthesize isInternal = _internal;
-@synthesize isEjectable = _ejectable;
-@synthesize isMounted = _mounted;
-@synthesize isWrittingEnabled = _writtingEnabled;
+@synthesize isInternal = _isInternal;
+@synthesize isEjectable = _isEjectable;
+@synthesize isMounted = _isMounted;
+@synthesize isWrittingEnabled = _isWrittingEnabled;
 
 #pragma mark -
 #pragma mark Constructors / Destructors
@@ -58,9 +58,9 @@
 	NICE_RELEASE(_deviceNode);
 	NICE_RELEASE(_mountPoint);
 	_protocol = P_SATA;
-	_internal = YES;
-	_ejectable = NO;
-	_writtingEnabled = NO;
+	_isInternal = YES;
+	_isEjectable = NO;
+	_isWrittingEnabled = NO;
 }
 
 #pragma mark -
@@ -70,55 +70,55 @@
 	[self clearVars];
 	NSRange r = [info rangeOfString:@"Device Identifier:"];
 	if (NSNotFound != r.location) {
-		_deviceIdentifier = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
+		_deviceIdentifier = [[NSString alloc] initWithString:[self extractInfoFrom:info atRange:r]];
 	}
 	r = [info rangeOfString:@"Device Node:"];
 	if (NSNotFound != r.location) {
-		_deviceNode = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
+		_deviceNode = [[NSString alloc] initWithString:[self extractInfoFrom:info atRange:r]];
 	}
 	r = [info rangeOfString:@"Part Of Whole:"];
 	if (NSNotFound != r.location) {
-		_device = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
+		_device = [[NSString alloc] initWithString:[self extractInfoFrom:info atRange:r]];
 	}
 	r = [info rangeOfString:@"Volume Name:"];
 	if (NSNotFound != r.location) {
-		_name = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
+		_name = [[NSString alloc] initWithString:[self extractInfoFrom:info atRange:r]];
 	}
 	r = [info rangeOfString:@"Mount Point:"];
 	if (NSNotFound != r.location) {
-		_mountPoint = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
+		_mountPoint = [[NSString alloc] initWithString:[self extractInfoFrom:info atRange:r]];
 	}
 	r = [info rangeOfString:@"Mounted:"];
 	if (NSNotFound != r.location) {
-		_mounted = [self extractBooleanFrom:info AtRange:r];
+		_isMounted = [self extractBooleanFrom:info atRange:r];
 	}
 	r = [info rangeOfString:@"Read-Only Volume:"];
 	if (NSNotFound != r.location) {
 		if ([info rangeOfString:@"Not applicable (not mounted)"].location != NSNotFound)
-			_writtingEnabled = 0;
+			_isWrittingEnabled = 0;
 		else
-			_writtingEnabled = [self extractBooleanFrom:info AtRange:r] ? 0 : 1;
+			_isWrittingEnabled = [self extractBooleanFrom:info atRange:r] ? 0 : 1;
 	}
 	r = [info rangeOfString:@"Volume UUID:"];
 	if (NSNotFound != r.location) {
-		_uuid = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
+		_uuid = [[NSString alloc] initWithString:[self extractInfoFrom:info atRange:r]];
 	}
 	r = [info rangeOfString:@"Protocol:"];
 	if (NSNotFound != r.location) {
-		_protocol = [self extractIntegerFrom:info AtRange:r];
+		_protocol = [self extractIntegerFrom:info atRange:r];
 	}
 	r = [info rangeOfString:@"Ejectable:"];
 	if (NSNotFound != r.location) {
-		_ejectable = [self extractBooleanFrom:info AtRange:r];
+		_isEjectable = [self extractBooleanFrom:info atRange:r];
 	}
 	r = [info rangeOfString:@"Internal:"];
 	if (NSNotFound != r.location) {
-		_internal = [self extractBooleanFrom:info AtRange:r];
+		_isInternal = [self extractBooleanFrom:info atRange:r];
 	}
 }
 
 - (NSString *)extractInfoFrom:(NSString *)info
-                      AtRange:(NSRange)range {
+                      atRange:(NSRange)range {
 	NSUInteger index = range.location + range.length + 1;
 	char buffer[128] = {0x00};
 	NSUInteger ui = 0;
@@ -132,7 +132,7 @@
 }
 
 - (BOOL)extractBooleanFrom:(NSString *)info
-                   AtRange:(NSRange)range {
+                   atRange:(NSRange)range {
 	NSUInteger index = range.location + range.length + 1;
 	char buffer[128] = {0x00};
 	NSUInteger ui = 0;
@@ -146,7 +146,7 @@
 }
 
 - (NSInteger)extractIntegerFrom:(NSString *)str
-                        AtRange:(NSRange)range {
+                        atRange:(NSRange)range {
 	NSUInteger index = range.location + range.length + 1;
 	char buffer[128] = {0x00};
 	NSUInteger ui = 0;
