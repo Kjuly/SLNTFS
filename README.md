@@ -32,7 +32,7 @@ __v2.0.5 @ 2013-01-06__
 
   - Reactivate the project by Kjuly.
 
-__v2.0.4 @ 2010__
+__v2.0.4 @ 2010-05-16__
 
   - Add : Italian localization;
   - Add : Spanish localization.
