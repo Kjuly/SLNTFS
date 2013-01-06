@@ -1,3 +1,4 @@
+
 #import "ProcessHelper.h"
 
 #include <assert.h>
@@ -11,7 +12,7 @@ typedef struct kinfo_proc kinfo_proc;
 
 @synthesize ProcessCount = _processCount;
 
--(id)init {
+- (id)init {
 	if (self = [super init]) {
 		_processCount = -1;
 		_processList  = nil;
@@ -19,15 +20,15 @@ typedef struct kinfo_proc kinfo_proc;
 	return self;
 }
 
--(void)dealloc {
+- (void)dealloc {
 	[_processList release];
 	[super dealloc];
 }
 
--(NSInteger)getBSDProcessList:(kinfo_proc**)procList withNumberOfProcesses:(size_t*)procCount
-{
+- (NSInteger)getBSDProcessList:(kinfo_proc **)procList
+         withNumberOfProcesses:(size_t *)procCount {
 	NSInteger err;
-	kinfo_proc* result = NULL;
+	kinfo_proc * result = NULL;
 	bool done = false;
 	static const int name[] = {CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0};
 	size_t length;
@@ -37,30 +38,27 @@ typedef struct kinfo_proc kinfo_proc;
 	assert(*procList == NULL);
 	// a valid pointer to procCount should be passed
 	assert(procCount != NULL);
-	*procCount = 0;
-	do
-	{
+	* procCount = 0;
+  
+	do {
 		assert(result == NULL);
 		// Call sysctl with a NULL buffer to get proper length
 		length = 0;
-		err = sysctl((int*)name, (sizeof(name) / sizeof(*name)) - 1, NULL, &length, NULL, 0);
+		err = sysctl((int *)name, (sizeof(name) / sizeof(* name)) - 1, NULL, &length, NULL, 0);
 		if (err == -1)
 			err = errno;
 		// Now, proper length is optained
-		if (err == 0)
-		{
+		if (err == 0) {
 			if (NULL == (result = malloc(length)))
 				err = ENOMEM; // not allocated
 		}
-		if (err == 0)
-		{
-			err = sysctl((int*)name, (sizeof(name) / sizeof(*name)) - 1, result, &length, NULL, 0);
+		if (err == 0) {
+			err = sysctl((int *)name, (sizeof(name) / sizeof(*name)) - 1, result, &length, NULL, 0);
 			if (err == -1)
 				err = errno;
 			if (err == 0)
 				done = true;
-			else if (err == ENOMEM)
-			{
+			else if (err == ENOMEM) {
 				assert(result != NULL);
 				free(result);
 				result = NULL;
@@ -69,43 +67,39 @@ typedef struct kinfo_proc kinfo_proc;
 		}
 	} while (err == 0 && !done);
   // Clean up and establish post condition
-	if (err != 0 && result != NULL)
-	{
+	if (err != 0 && result != NULL) {
 		free(result);
 		result = NULL;
 	}
-	*procList = result; // will return the result as procList
+	* procList = result; // will return the result as procList
 	if (err == 0)
-		*procCount = length / sizeof(kinfo_proc);
-	assert((err == 0) == (*procList != NULL));
+		* procCount = length / sizeof(kinfo_proc);
+	assert((err == 0) == (* procList != NULL));
 	return err;
 }
 
--(void)obtainFreshProcessList
-{
-	kinfo_proc* allProcs = 0;
+- (void)obtainFreshProcessList {
+	kinfo_proc * allProcs = 0;
 	size_t numProcs;
-	NSString* procName = nil;
+	NSString * procName = nil;
 	NSInteger err = [self getBSDProcessList:&allProcs withNumberOfProcesses:&numProcs];
-	if (err)
-	{
+	if (err) {
 		_processCount = -1;
 		_processList = nil;
 		return;
 	}
 	// Construct an array for ( process name )
 	_processList = [NSMutableArray arrayWithCapacity:numProcs];
-	for (NSInteger i = 0 ; i < numProcs ; i++)
-	{
-		procName = [NSString stringWithCString:allProcs[i].kp_proc.p_comm encoding:NSASCIIStringEncoding];
+	for (NSInteger i = 0 ; i < (NSInteger)numProcs; ++i) {
+		procName = [NSString stringWithCString:allProcs[i].kp_proc.p_comm
+                                  encoding:NSASCIIStringEncoding];
 		[_processList addObject:procName];
 	}
-	_processCount = numProcs;
+	_processCount = (NSInteger)numProcs;
 	free(allProcs);
 }
 
--(BOOL)findProcessWithName:(NSString*)procNameToSearch
-{
+- (BOOL)findProcessWithName:(NSString *)procNameToSearch {
 	return ([_processList indexOfObject:procNameToSearch] != NSNotFound);
 }
 

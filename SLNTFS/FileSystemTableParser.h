@@ -1,3 +1,4 @@
+
 #import <Foundation/Foundation.h>
 #import <SecurityFoundation/SFAuthorization.h>
 
@@ -5,42 +6,45 @@
 #define FSTAB_PATH @"/etc/fstab"
 #define BACKUP_NAME @".fstabackup"
 
-@interface FileSystemTableParser : NSObject
-{
+@interface FileSystemTableParser : NSObject {
 	/// Lines of the fstab file
-	NSMutableArray* _lines;
+	NSMutableArray * _lines;
 	/// fstab copy path
-	NSString* _copyPath;
+	NSString * _copyPath;
 	/// fstab backup path
-	NSString* _backupPath;
+	NSString * _backupPath;
 	///
-	NSFileManager* _fileManager;
+	NSFileManager * _fileManager;
 }
+
 #pragma mark -
 #pragma mark Constructors / Destructors
--(id)init;
--(id)initWithCopyPath:(NSString*)path;
--(void)dealloc;
+
+- (id)init;
+- (id)initWithCopyPath:(NSString *)path;
+- (void)dealloc;
 
 #pragma mark -
 #pragma mark General methods
--(void)restoreBackup;
--(void)fstabRead;
--(BOOL)saveWithAuthorization:(SFAuthorization*)auth;
--(BOOL)isWrittingEnabledOn:(NSString*)nameOrUUID;
--(BOOL)removeLine:(NSString*)nameOrUUID;
--(void)addUUIDline:(NSString*)uuid;
--(void)addLABELline:(NSString*)label;
--(void)resetWithAuthorization:(SFAuthorization*)auth;
+
+- (void)restoreBackup;
+- (void)fstabRead;
+- (BOOL)saveWithAuthorization:(SFAuthorization *)auth;
+- (BOOL)isWrittingEnabledOn:(NSString *)nameOrUUID;
+- (BOOL)removeLine:(NSString *)nameOrUUID;
+- (void)addUUIDline:(NSString *)uuid;
+- (void)addLABELline:(NSString *)label;
+- (void)resetWithAuthorization:(SFAuthorization *)auth;
 
 @end
 
 #pragma mark -
 #pragma mark Private methods
+
 @interface FileSystemTableParser (PrivateMethods)
 
--(void)copyForReading;
--(void)removeCopy;
--(void)addLine:(NSString*)line;
+- (void)copyForReading;
+- (void)removeCopy;
+- (void)addLine:(NSString *)line;
 
 @end

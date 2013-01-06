@@ -1,12 +1,13 @@
+
 "AUTHENTIFICATION_FAILED" = "授权失败。";
-"ERR_ENABLE" = "不能在本磁盘启用写入功能。";
-"DAEMON_STATUS" = "重启后生效。";
-"UNINSTALL_OK" = "卸载成功，请退出。";
+"ERR_ENABLE"              = "不能在本磁盘启用写入功能。";
+"DAEMON_STATUS"           = "重启后生效。";
+"UNINSTALL_OK"            = "卸载成功，请退出。";
 /* 提示 */ 
-"BTN_MOUNT_TT" = "加载所选磁盘。";
-"BTN_UNMOUNT_TT" = "卸载所选磁盘。";
-"BTN_DAEMON_TT" = "启用实时监视器，当插入 NTFS 磁盘时弹出提示。";
-"BTN_RESET_TT" = "恢复默认设置，所有禁用 NTFS 磁盘写入功能。";
-"BTN_CHKUPD_TT" = "检查 SL-NTFS 版本更新。";
+"BTN_MOUNT_TT"     = "加载所选磁盘。";
+"BTN_UNMOUNT_TT"   = "卸载所选磁盘。";
+"BTN_DAEMON_TT"    = "启用实时监视器，当插入 NTFS 磁盘时弹出提示。";
+"BTN_RESET_TT"     = "恢复默认设置，所有禁用 NTFS 磁盘写入功能。";
+"BTN_CHKUPD_TT"    = "检查 SL-NTFS 版本更新。";
 "BTN_ACTTOPERF_TT" = "当插入 NTFS 磁盘时自动执行。";
 "BTN_UNINSTALL_TT" = "完全卸载。";

@@ -1,3 +1,4 @@
+
 #import <Cocoa/Cocoa.h>
 
 @interface ProcessHelper : NSObject {
@@ -8,8 +9,8 @@
 
 @property (nonatomic, readwrite) NSInteger ProcessCount;
 
--(id)init;
--(void)obtainFreshProcessList;
--(BOOL)findProcessWithName:(NSString*)procNameToSearch;
+- (id)init;
+- (void)obtainFreshProcessList;
+- (BOOL)findProcessWithName:(NSString *)procNameToSearch;
 
 @end
