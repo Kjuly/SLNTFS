@@ -1,0 +1,67 @@
+<pkmkdoc spec="1.12"><properties><title>SL-NTFS</title><build>/Users/nyxouf/Desktop/SL-NTFS/SL-NTFS Installer.pkg</build><organization>com.juicybinary</organization><userSees ui="easy"/><min-target os="3"/><domain anywhere="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><contents><choice title="SLNTFS Daemon" id="choice3" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="com.juicybinary.slntfs.SLNTFSDaemon.pkg"/></choice><choice title="SLNTFS" id="choice4" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="com.juicybinary.slntfs.SLNTFS.pkg"/></choice><choice title="com.juicybinary.SLNTFS" id="choice5" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="com.juicybinary.slntfs.slntfspref_copy.pkg"/></choice></contents><resources bg-scale="proportional" bg-align="topleft"><locale lang="en"><resource mod="true" type="background">/Users/nyxouf/Desktop/atm/SL-NTFS/slntfsinst.png</resource><resource mime-type="text/rtf" kind="embedded" type="readme"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf290
+{\fonttbl\f0\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;\red31\green68\blue154;}
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\b\fs24 \cf0 About SL-NTFS (Snow Leopard - NTFS)
+\b0 \
+\
+SL-NTFS enables NTFS volume write support for Mac OS X 10.6. By default, only read support for NTFS volumes is available. SL-NTFS makes enabling NTFS write for internal and external NTFS volumes\'a0quick and easy.\
+\
+Note that a number of packages provide similar functionality. Use of SL-NTFS and any of these packages is very likely to result in unpredictable results. It is therefore recommended that if you wish to\'a0use SL-NTFS, that you uninstall any other packages prior to installing SL-NTFS.\
+\
+Configuring SL-NTFS couldn't be easier. An OS X Preference Pane is used to configure NTFS write behaviour with some flexibility depending on your requirements.\
+\
+SL-NTFS comes with a daemon that can be enabled via the NTFS Preference Pane. This daemon notifies the user when a NTFS disk is mounted, and offers NTFS write support for that volume if this has\'a0not already been specified.\
+\
+Regards\
+\
+Benjamin GODARD\
+SL-NTFS Developer\
+\
+Contact / website\
+\
+\pard\pardeftab720\ql\qnatural
+{\field{\*\fldinst{HYPERLINK "mailto:support@whine.fr"}}{\fldrslt \cf2 \ul \ulc2 support@whine.fr}}\
+\pard\pardeftab720\ql\qnatural
+{\field{\*\fldinst{HYPERLINK "http://whine.fr/"}}{\fldrslt \cf2 \ul \ulc2 http://whine.fr}}}]]></resource><resource mime-type="text/rtf" kind="embedded" type="welcome"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf290
+{\fonttbl\f0\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 DISCLAIMER :
+\b0 \
+\
+\pard\pardeftab720\ql\qnatural
+\cf0 IN NO EVENT, UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING, SHALL BENJAMIN GODARD, OR ANY PERSON BE LIABLE FOR ANY LOSS, EXPENSE OR DAMAGE, OF ANY TYPE OR NATURE ARISING OUT OF THE USE OF, OR INABILITY TO USE THIS SOFTWARE OR PROGRAM, INCLUDING, BUT NOT LIMITED TO, CLAIMS, SUITS OR CAUSES OF ACTION INVOLVING ALLEGED INFRINGEMENT OF COPYRIGHTS, PATENTS, TRADEMARKS, TRADE SECRETS, OR UNFAIR COMPETITION.}]]></resource></locale><locale lang="fr"><resource mod="true" type="background">/Users/nyxouf/Desktop/atm/SL-NTFS/slntfsinst.png</resource><resource mime-type="text/rtf" kind="embedded" type="readme"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf290
+{\fonttbl\f0\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 A propos de SL-NTFS (Snow Leopard - NTFS)
+\b0 \
+\
+SL-NTFS active l'\'e9criture sur les disques NTFS sur Mac OS X 10.6. Par d\'e9faut, seule la lecture est possible. SL-NTFS rend possible l'\'e9criture NTFS sur les disques interne et externe, simplement et rapidement.\
+\
+Plusieurs outils offrent les m\'eames fonctionnalit\'e9s. L'usage de SL-NTFS avec un autre de ces utilitaires peut conduire \'e0 des comportements al\'e9atoires engendrant une perte de donn\'e9es. Il est donc recommand\'e9 de ne pas utilis\'e9 SL-NTFS avec un autre de ces utilitaires.\
+\
+La configuration de SL-NTFS est tr\'e8s simple. Une pr\'e9f\'e9rence Pane est utilis\'e9e pour configurer l'\'e9criture.\
+\
+SL-NTFS inclus \'e9galement un daemon qui peut-\'eatre activer via la Pr\'e9f\'e9rence Pane. Ce daemon notifie l'utilisateur quand un disque NTFS est mont\'e9 et offre la possibilit\'e9 d'activer l'\'e9criture dessus si ce n'est d\'e9j\'e0 fait.\
+\
+Benjamin GODARD\
+D\'e9veloppeur de SL-NTFS \
+\
+Contact / Website\
+\
+{\field{\*\fldinst{HYPERLINK "support@whine.fr"}}{\fldrslt support@whine.fr}}\
+{\field{\*\fldinst{HYPERLINK "http://whine.fr"}}{\fldrslt http://whine.fr}}}]]></resource><resource mime-type="text/rtf" kind="embedded" type="welcome"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf290
+{\fonttbl\f0\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 DISCLAIMER :
+\b0 \
+\
+LE PLUS GRAND SOIN A ETE APPORTE A LA CONCEPTION DE SL-NTFS. IL SE PEUT NEANMOINS QUE L'USAGE DE SL-NTFS ENGENDRE UNE PERTE DE DONNEES. L'AUTEUR N'ENDOSSERA AUCUNE RESPONSABILITE ET NE PEUT EN AUCUN CAS ETRE TENU RESPONSABLE DES EVENTUELS DOMMAGES.}]]></resource></locale></resources><requirements><requirement id="tosv" operator="ge" value="'10.6.0'"><message-title>Invalid system version</message-title><message>Minimum system version required : 10.6</message></requirement><requirement id="sosv" operator="ge" value="'10.6.0'"/></requirements><flags/><preinstall><action id="com.apple.packagemaker.actions.getapplication"><item1-title>com.apple.systempreferences</item1-title><item2-title>System Preferences</item2-title></action><action id="com.apple.packagemaker.actions.quitapplication"/></preinstall><item type="file">01slntfs.xml</item><item type="file">02slntfs.xml</item><item type="file">03slntfspref.xml</item><mod>properties.anywhereDomain</mod><mod>properties.systemDomain</mod><mod>properties.title</mod><mod>properties.customizeOption</mod><mod>preinstallActions.actions</mod><mod>postinstallActions.actions</mod></pkmkdoc>

@@ -1,0 +1,12 @@
+"AUTHENTIFICATION_FAILED" = "Autenticazione fallita!";
+"ERR_ENABLE" = "Non è possibile abilitare la scrittura!";
+"DAEMON_STATUS" = "I cambiamenti saranno disponibili DOPO il riavvio";
+"UNINSTALL_OK" = "Disinstallazione OK. Esci per completare.";
+/* Tooltips */
+"BTN_MOUNT_TT" = "Monta il disco selezionato.";
+"BTN_UNMOUNT_TT" = "Smonta il disco selezionato.";
+"BTN_DAEMON_TT" = "Abilita un processo, che controlla in tempo reale la presenza di dischi NTFS.";
+"BTN_RESET_TT" = "Ripristinate le impostazioni predefinite, scrittura NTFS disabilitata su tutti i dischi.";
+"BTN_CHKUPD_TT" = "Controlla se una nuova versione di SL-NTFS è disponibile.";
+"BTN_ACTTOPERF_TT" = "Azione da eseguire quando un disco NTFS è collegato.";
+"BTN_UNINSTALL_TT" = "Disinstallazione pulita.";

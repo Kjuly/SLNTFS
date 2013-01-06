@@ -1,0 +1,31 @@
+
+"Général";
+"A propos";
+"Nom du disque";
+"Ecriture";
+"Monter";
+"Démonter";
+"Rétablir";
+"Mises à jour";
+"Daemon";
+"Toujours demander";
+"Activer l'écriture automatiquement";
+"Désinstaller";
+"Site web";
+
+"L'authentification a échoué.";
+"Impossible d'activer l'écriture sur ce disque.";
+"Les changements prendront effets au prochain démarrage.";
+"Désinstallation OK. Quittez pour terminer.";
+"Monte le disque sélectionné.";
+"Démonte le disque sélectionné.";
+"Active un démon qui vérifie en temps réel si des disques NTFS sont branchés.";
+"Restaure les réglages d'origine, l'écriture NTFS est désactivée sur tous les disques.";
+"Vérifie si une nouvelle version de SL-NTFS est disponible.";
+"Action à exécuter quand un disque NTFS est branché.";
+"Désinstalle proprement cette fenêtre de préférences.";
+
+"Détection d'un disque NTFS";
+"Voulez vous activer l'écriture sur celui-ci ?";
+"Activer";
+"Ignorer";

@@ -1,0 +1,12 @@
+"AUTHENTIFICATION_FAILED" = "Authentifizierung fehlgeschlagen.";
+"ERR_ENABLE" = "Schreibzugriff auf dieses Volume kann nicht aktiviert werden.";
+"DAEMON_STATUS" = "Änderung wird nach dem Neustart übernommen.";
+"UNINSTALL_OK" = "Deinstallation OK. Zum Fertigstellen beenden.";
+/* Tooltips */
+"BTN_MOUNT_TT" = "Das ausgewählte Volume mounten.";
+"BTN_UNMOUNT_TT" = "Das ausgewählte Volume unmounten.";
+"BTN_DAEMON_TT" = "Daemon aktivieren (automatische Erkennung angeschlossener NTFS-Volumes ohne Schreibzugriff).";
+"BTN_RESET_TT" = "Standardeinstellungen wiederherstellen (NTFS-Schreibzugriff auf allen Volumes deaktiviert).";
+"BTN_CHKUPD_TT" = "Auf Update von SL-NTFS prüfen.";
+"BTN_ACTTOPERF_TT" = "Auszuführende Aktion, wenn ein NTFS-Volume angeschlossen wird.";
+"BTN_UNINSTALL_TT" = "Vollständige Deinstallation.";

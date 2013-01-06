@@ -1,0 +1,12 @@
+"AUTHENTIFICATION_FAILED" = "Ha fallado la autenticación.";
+"ERR_ENABLE" = "Ha sido imposible activar la escritura en este disco.";
+"DAEMON_STATUS" = "Los cambios tendrán efecto la proxima vez que se inicie el sistema.";
+"UNINSTALL_OK" = " Desinstalación correcta. Quitar el programa para terminar.";
+/* Tooltips */
+"BTN_MOUNT_TT" = "Montar el disco seleccionado.";
+"BTN_UNMOUNT_TT" = "Desmontar el disco seleccionado.";
+"BTN_DAEMON_TT" = "Activar un demonio que comprueba en tiempo real si hay discos NTFS conectados.";
+"BTN_RESET_TT" = "Se vuelve a los parámetros iniciales, la escritura NTFS está desactivada en todos los discos.";
+"BTN_CHKUPD_TT" = "Comprobar si una nueva version de SL-NTFS está disponible.";
+"BTN_ACTTOPERF_TT" = "Acción a ejecutar cuando un disco NTFS esta conectado.";
+"BTN_UNINSTALL_TT" = "Desinstalar correctamente este panel de preferencias.";

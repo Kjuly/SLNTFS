@@ -1,0 +1,12 @@
+"AUTHENTIFICATION_FAILED" = "Authentification failed.";
+"ERR_ENABLE" = "Can't enable writing on this disk.";
+"DAEMON_STATUS" = "Change will take effect after reboot.";
+"UNINSTALL_OK" = "Uninstall OK. Quit to complete.";
+/* Tooltips */
+"BTN_MOUNT_TT" = "Mount the selected disk.";
+"BTN_UNMOUNT_TT" = "Unmount the selected disk.";
+"BTN_DAEMON_TT" = "Enable a daemon which check in real time if NTFS disks are plugged.";
+"BTN_RESET_TT" = "Restore default settings, NTFS writing disabled on all disk.";
+"BTN_CHKUPD_TT" = "Check if a newer version of SL-NTFS is available.";
+"BTN_ACTTOPERF_TT" = "Action to perform when a NTFS disk is plugged.";
+"BTN_UNINSTALL_TT" = "Clean uninstall.";

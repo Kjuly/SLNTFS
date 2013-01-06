@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>SLNTFS</string>
+	<key>CFBundleIconFile</key>
+	<string>slntfs.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.juicybinary.SLNTFS</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>SLNTFS</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0.5</string>
+	<key>CFBundleSignature</key>
+	<string>NYXM</string>
+	<key>CFBundleVersion</key>
+	<string>2.0.5</string>
+	<key>NSMainNibFile</key>
+	<string>SLNTFSPref</string>
+	<key>NSPrefPaneIconFile</key>
+	<string>slntfs.icns</string>
+	<key>NSPrefPaneIconLabel</key>
+	<string>SL-NTFS</string>
+	<key>NSPrincipalClass</key>
+	<string>SLNTFSPref</string>
+	<key>SUFeedURL</key>
+	<string>http://whine.fr/Softs/SLNTFS/Appcast.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+</dict>
+</plist>

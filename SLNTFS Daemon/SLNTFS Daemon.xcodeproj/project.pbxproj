@@ -1,0 +1,269 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EF660A611384867004480B7 /* FileSystemTableParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF660A211384867004480B7 /* FileSystemTableParser.m */; };
+		1EF660A711384867004480B7 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF660A411384867004480B7 /* Tools.m */; };
+		1EF6611011388B81004480B7 /* NTFSDisk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF6610F11388B81004480B7 /* NTFSDisk.m */; };
+		7F751E3A1697FC2C001E9C31 /* DiskArbitration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F751E391697FC2C001E9C31 /* DiskArbitration.framework */; };
+		8DD76F9A0486AA7600D96B5E /* SLNTFS Daemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* SLNTFS Daemon.m */; settings = {ATTRIBUTES = (); }; };
+		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* SLNTFS Daemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLNTFS Daemon.m"; sourceTree = "<group>"; };
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		1EF6609C11384831004480B7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1EF660A111384867004480B7 /* FileSystemTableParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemTableParser.h; sourceTree = "<group>"; };
+		1EF660A211384867004480B7 /* FileSystemTableParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemTableParser.m; sourceTree = "<group>"; };
+		1EF660A311384867004480B7 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		1EF660A411384867004480B7 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		1EF6610E11388B81004480B7 /* NTFSDisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFSDisk.h; sourceTree = "<group>"; };
+		1EF6610F11388B81004480B7 /* NTFSDisk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFSDisk.m; sourceTree = "<group>"; };
+		32A70AAB03705E1F00C91783 /* SLNTFS Daemon_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLNTFS Daemon_Prefix.pch"; sourceTree = "<group>"; };
+		7F751E391697FC2C001E9C31 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DiskArbitration.framework; sourceTree = "<group>"; };
+		8DD76FA10486AA7600D96B5E /* SLNTFS Daemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SLNTFS Daemon"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				7F751E3A1697FC2C001E9C31 /* DiskArbitration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* SLNTFS Daemon */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = "SLNTFS Daemon";
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1EF6610E11388B81004480B7 /* NTFSDisk.h */,
+				1EF6610F11388B81004480B7 /* NTFSDisk.m */,
+				1EF660A111384867004480B7 /* FileSystemTableParser.h */,
+				1EF660A211384867004480B7 /* FileSystemTableParser.m */,
+				1EF660A311384867004480B7 /* Tools.h */,
+				1EF660A411384867004480B7 /* Tools.m */,
+				1EF6609C11384831004480B7 /* Constants.h */,
+				32A70AAB03705E1F00C91783 /* SLNTFS Daemon_Prefix.pch */,
+				08FB7796FE84155DC02AAC07 /* SLNTFS Daemon.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+				7F751E391697FC2C001E9C31 /* DiskArbitration.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FA10486AA7600D96B5E /* SLNTFS Daemon */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F960486AA7600D96B5E /* SLNTFS Daemon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "SLNTFS Daemon" */;
+			buildPhases = (
+				8DD76F990486AA7600D96B5E /* Sources */,
+				8DD76F9B0486AA7600D96B5E /* Frameworks */,
+				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SLNTFS Daemon";
+			productInstallPath = "$(HOME)/bin";
+			productName = "SLNTFS Daemon";
+			productReference = 8DD76FA10486AA7600D96B5E /* SLNTFS Daemon */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "SLNTFS Daemon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* SLNTFS Daemon */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F960486AA7600D96B5E /* SLNTFS Daemon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F990486AA7600D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9A0486AA7600D96B5E /* SLNTFS Daemon.m in Sources */,
+				1EF660A611384867004480B7 /* FileSystemTableParser.m in Sources */,
+				1EF660A711384867004480B7 /* Tools.m in Sources */,
+				1EF6611011388B81004480B7 /* NTFSDisk.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927508733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SLNTFS Daemon_Prefix.pch";
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = "SLNTFS Daemon";
+			};
+			name = Debug;
+		};
+		1DEB927608733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SLNTFS Daemon_Prefix.pch";
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = "SLNTFS Daemon";
+			};
+			name = Release;
+		};
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ONE_BYTE_BOOL = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_SHORT_ENUMS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SDKROOT = macosx10.6;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_ONE_BYTE_BOOL = YES;
+				GCC_SHORT_ENUMS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SDKROOT = macosx10.6;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "SLNTFS Daemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927508733DD40010E9CD /* Debug */,
+				1DEB927608733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "SLNTFS Daemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
