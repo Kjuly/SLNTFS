@@ -17,6 +17,7 @@ void * handleDisk_Thread(void *);
 void SIGTERM_handler(const int);
 
 int main(int argc, const char * argv[]) {
+#pragma unused(argc, argv)
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	
 	if (geteuid() != 0)
@@ -53,6 +54,7 @@ int main(int argc, const char * argv[]) {
 }
 
 DADissenterRef diskDidMount(DADiskRef dsk, void * context) {
+#pragma unused(context)
 	NSDictionary * SLNTFSpref = [NSDictionary dictionaryWithContentsOfFile:@"/Library/Preferences/slntfspref_copy.plist"];
 	if (SLNTFSpref) {
 		if (![[SLNTFSpref objectForKey:PREF_DAEMON] boolValue])
