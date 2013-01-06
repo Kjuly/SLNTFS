@@ -1,3 +1,4 @@
+
 #import "NTFSDisk.h"
 #import "Tools.h"
 #import "Constants.h"
@@ -19,24 +20,25 @@
 
 #pragma mark -
 #pragma mark Constructors / Destructors
--(id)init
-{
-	@throw([NSException exceptionWithName:EX_WRONG_INIT reason:@"Use -(id)initWithDiskutilInfo:(NSString*)info instead" userInfo:nil]);
+
+- (id)init {
+	@throw([NSException exceptionWithName:EX_WRONG_INIT
+                                 reason:@"Use -(id)initWithDiskutilInfo:(NSString*)info instead"
+                               userInfo:nil]);
 }
 
--(id)initWithDiskutilInfo:(NSString*)info
-{
-	if (self = [super init])
-	{
+- (id)initWithDiskutilInfo:(NSString *)info {
+	if (self = [super init]) {
 		[self parseInfo:info];
 		_session = DASessionCreate(kCFAllocatorDefault);
-		_disk = DADiskCreateFromBSDName(kCFAllocatorDefault, _session, [_deviceNode cStringUsingEncoding:NSASCIIStringEncoding]);
+		_disk = DADiskCreateFromBSDName(kCFAllocatorDefault,
+                                    _session,
+                                    [_deviceNode cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
 	return self;
 }
 
--(void)dealloc
-{
+- (void)dealloc {
 	[_uuid release];
 	[_name release];
 	[_device release];
@@ -48,8 +50,7 @@
 	[super dealloc];
 }
 
--(void)clearVars
-{
+- (void)clearVars {
 	NICE_RELEASE(_name);
 	NICE_RELEASE(_uuid);
 	NICE_RELEASE(_device);
@@ -64,143 +65,116 @@
 
 #pragma mark -
 #pragma mark General Methods
--(void)parseInfo:(NSString*)info
-{
+
+- (void)parseInfo:(NSString *)info {
 	[self clearVars];
 	NSRange r = [info rangeOfString:@"Device Identifier:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_deviceIdentifier = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
 	}
 	r = [info rangeOfString:@"Device Node:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_deviceNode = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
 	}
 	r = [info rangeOfString:@"Part Of Whole:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_device = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
 	}
 	r = [info rangeOfString:@"Volume Name:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_name = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
 	}
 	r = [info rangeOfString:@"Mount Point:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_mountPoint = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
 	}
 	r = [info rangeOfString:@"Mounted:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_mounted = [self extractBooleanFrom:info AtRange:r];
 	}
 	r = [info rangeOfString:@"Read-Only Volume:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		if ([info rangeOfString:@"Not applicable (not mounted)"].location != NSNotFound)
 			_writtingEnabled = 0;
 		else
 			_writtingEnabled = [self extractBooleanFrom:info AtRange:r] ? 0 : 1;
 	}
 	r = [info rangeOfString:@"Volume UUID:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_uuid = [[NSString alloc] initWithString:[self extractInfoFrom:info AtRange:r]];
 	}
 	r = [info rangeOfString:@"Protocol:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_protocol = [self extractIntegerFrom:info AtRange:r];
 	}
 	r = [info rangeOfString:@"Ejectable:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_ejectable = [self extractBooleanFrom:info AtRange:r];
 	}
 	r = [info rangeOfString:@"Internal:"];
-	if (NSNotFound != r.location)
-	{
+	if (NSNotFound != r.location) {
 		_internal = [self extractBooleanFrom:info AtRange:r];
 	}
 }
 
--(NSString*)extractInfoFrom:(NSString*)info AtRange:(NSRange)range
-{
+- (NSString *)extractInfoFrom:(NSString *)info
+                      AtRange:(NSRange)range {
 	NSUInteger index = range.location + range.length + 1;
 	char buffer[128] = {0x00};
 	NSUInteger ui = 0;
 	char c = 0x00;
-	while ((c = [info characterAtIndex:index]) != '\n')
-	{
+	while ((c = [info characterAtIndex:index]) != '\n') {
 		if (ispunct(c) || isalnum(c))
-		{
 			buffer[ui++] = c;
-		}
 		index++;
 	}
 	return [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
 }
 
--(BOOL)extractBooleanFrom:(NSString*)info AtRange:(NSRange)range
-{
+- (BOOL)extractBooleanFrom:(NSString *)info
+                   AtRange:(NSRange)range {
 	NSUInteger index = range.location + range.length + 1;
 	char buffer[128] = {0x00};
 	NSUInteger ui = 0;
 	char c = 0x00;
-	while ((c = [info characterAtIndex:index]) != '\n')
-	{
+	while ((c = [info characterAtIndex:index]) != '\n') {
 		if (ispunct(c) || isalnum(c))
-		{
 			buffer[ui++] = c;
-		}
 		index++;
 	}
 	return (!strcmp(buffer, "Yes"));
 }
 
--(NSInteger)extractIntegerFrom:(NSString*)str AtRange:(NSRange)range
-{
+- (NSInteger)extractIntegerFrom:(NSString *)str
+                        AtRange:(NSRange)range {
 	NSUInteger index = range.location + range.length + 1;
 	char buffer[128] = {0x00};
 	NSUInteger ui = 0;
 	char c = 0x00;
-	while ((c = [str characterAtIndex:index]) != '\n')
-	{
+	while ((c = [str characterAtIndex:index]) != '\n') {
 		if (ispunct(c) || isalnum(c))
-		{
 			buffer[ui++] = c;
-		}
 		index++;
 	}
-	if (!strcmp(buffer, "SATA"))
-		return P_SATA;
-	else if (!strcmp(buffer, "ATA"))
-		return P_ATA;
-	else if (!strcmp(buffer, "USB"))
-		return P_USB;
-	else if (!strcmp(buffer, "FIREWIRE"))
-		return P_FIREWIRE;
-	else
-		return -1;
+	if (!strcmp(buffer, "SATA"))          return P_SATA;
+	else if (!strcmp(buffer, "ATA"))      return P_ATA;
+	else if (!strcmp(buffer, "USB"))      return P_USB;
+	else if (!strcmp(buffer, "FIREWIRE")) return P_FIREWIRE;
+	else                                  return -1;
 }
 
--(void)mount
-{
+- (void)mount {
 	DADiskMount(_disk, NULL, kDADiskMountOptionDefault, NULL, NULL);
 }
 
--(void)unmount
-{
+- (void)unmount {
 	DADiskUnmount(_disk, kDADiskUnmountOptionDefault, NULL, NULL);
 }
 
--(void)updateStatus
-{
-	NSData* data = [Tools executeCommand:BIN_DISKUTIL_PATH withArguments:[NSArray arrayWithObjects:@"info", _deviceNode, nil]];
-	NSString* info = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+- (void)updateStatus {
+	NSData * data = [Tools executeCommand:BIN_DISKUTIL_PATH
+                          withArguments:[NSArray arrayWithObjects:@"info", _deviceNode, nil]];
+	NSString * info = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 	[self parseInfo:info];
 	[info release];
 }

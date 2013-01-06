@@ -32,6 +32,7 @@ typedef enum {P_ATA, P_SATA, P_USB, P_FIREWIRE, P_ESATA, P_UNKNOW} VolProtocol;
 	/// BSD Disk reference
 	DADiskRef _disk;
 }
+
 @property (nonatomic, readonly) NSString * Name;
 @property (nonatomic, readonly) NSString * UUID;
 @property (nonatomic, readonly) NSString * DeviceIdentifier;
