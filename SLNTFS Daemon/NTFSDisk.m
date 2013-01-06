@@ -6,17 +6,17 @@
 
 @implementation NTFSDisk
 
-@synthesize Name = _name;
-@synthesize UUID = _uuid;
-@synthesize DeviceIdentifier = _deviceIdentifier;
-@synthesize DeviceNode = _deviceNode;
-@synthesize Device = _device;
-@synthesize MountPoint = _mountPoint;
-@synthesize Protocol = _protocol;
-@synthesize Internal = _internal;
-@synthesize Ejectable = _ejectable;
-@synthesize Mounted = _mounted;
-@synthesize WrittingEnabled = _writtingEnabled;
+@synthesize name = _name;
+@synthesize uuid = _uuid;
+@synthesize deviceIdentifier = _deviceIdentifier;
+@synthesize deviceNode = _deviceNode;
+@synthesize device = _device;
+@synthesize mountPoint = _mountPoint;
+@synthesize protocol = _protocol;
+@synthesize isInternal = _internal;
+@synthesize isEjectable = _ejectable;
+@synthesize isMounted = _mounted;
+@synthesize isWrittingEnabled = _writtingEnabled;
 
 #pragma mark -
 #pragma mark Constructors / Destructors

@@ -7,7 +7,7 @@
   NSMutableArray * _processList;
 }
 
-@property (nonatomic, readwrite) NSInteger ProcessCount;
+@property (nonatomic, readwrite) NSInteger processCount;
 
 - (id)init;
 - (void)obtainFreshProcessList;

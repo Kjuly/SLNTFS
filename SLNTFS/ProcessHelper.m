@@ -10,7 +10,7 @@ typedef struct kinfo_proc kinfo_proc;
 
 @implementation ProcessHelper
 
-@synthesize ProcessCount = _processCount;
+@synthesize processCount = _processCount;
 
 - (id)init {
 	if (self = [super init]) {

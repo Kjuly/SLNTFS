@@ -104,17 +104,17 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	if (aTableView == _disksView) {
     NTFSDisk * disk = [_disks objectAtIndex:row];
 		if (aTableColumn == _tcDiskNameColumn)
-      return (disk.Name) ? disk.Name : @"???";
+      return (disk.name) ? disk.name : @"???";
     else if (aTableColumn == _tcStateColumn)
-      return [NSNumber numberWithUnsignedInteger:disk.WrittingEnabled];
+      return [NSNumber numberWithUnsignedInteger:disk.isWrittingEnabled];
     else {
 			NSString * str = nil;
 			NSString * ressourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
-			if (P_USB == disk.Protocol)
+			if (P_USB == disk.protocol)
 				str = [NSString stringWithFormat:@"%@/disk_usb.icns", ressourcePath];
-			else if (P_FIREWIRE == disk.Protocol)
+			else if (P_FIREWIRE == disk.protocol)
 				str = [NSString stringWithFormat:@"%@/disk_firewire.icns", ressourcePath];
-			else if (P_SATA == disk.Protocol)
+			else if (P_SATA == disk.protocol)
 				str = [NSString stringWithFormat:@"%@/disk_internal.icns", ressourcePath];
 			else
 				str = [NSString stringWithFormat:@"%@/disk_external.icns", ressourcePath];
@@ -132,7 +132,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 #pragma unused(aTableColumn)
 	if ([aCell respondsToSelector:@selector(setTextColor:)]) {
 		NTFSDisk * disk = [_disks objectAtIndex:row];
-    if (disk.Mounted) [aCell setTextColor:[NSColor blackColor]];
+    if (disk.isMounted) [aCell setTextColor:[NSColor blackColor]];
 		else              [aCell setTextColor:[NSColor grayColor]];
 	}
 }
@@ -184,14 +184,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	[_errorLabel setStringValue:@""];
 	NTFSDisk * disk = [_disks objectAtIndex:[_disksView selectedRow]];
   // Delete the line
-	if (disk.WrittingEnabled) {
-		if (disk.UUID != nil) [_fstabParser removeLine:disk.UUID]; // Try remove UUID line
-		[_fstabParser removeLine:disk.Name];                       // Try remove LABEL line
+	if (disk.isWrittingEnabled) {
+		if (disk.uuid != nil) [_fstabParser removeLine:disk.uuid]; // Try remove UUID line
+		[_fstabParser removeLine:disk.name];                       // Try remove LABEL line
 	}
   // Add the line
 	else {
-		if (disk.UUID != nil) [_fstabParser addUUIDline:disk.UUID]; // Add UUID line
-		[_fstabParser addLABELline:disk.Name];                      // Also add LABEL line
+		if (disk.uuid != nil) [_fstabParser addUUIDline:disk.uuid]; // Add UUID line
+		[_fstabParser addLABELline:disk.name];                      // Also add LABEL line
 		_tryEnableWriting = YES;
 	}
 	if (![_fstabParser saveWithAuthorization:[_authorizationView authorization]]) {
@@ -200,7 +200,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
                                                    value:@"Authentification failed"
                                                    table:nil]];
 		[_errorLabel setHidden:NO];
-		[_disksView setObjectValue:[NSNumber numberWithBool:disk.WrittingEnabled]];
+		[_disksView setObjectValue:[NSNumber numberWithBool:disk.isWrittingEnabled]];
 		[_fstabParser restoreBackup];
 		return;
 	}
@@ -285,10 +285,10 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
     [[aNotification userInfo] objectForKey:@"NSWorkspaceVolumeLocalizedNameKey"];
 	BOOL exist = NO;
 	for (NTFSDisk * disk in _disks) {
-		if ([disk.Name isEqualToString:name]) {
+		if ([disk.name isEqualToString:name]) {
 			[disk updateStatus];
 			exist = YES;
-			if (_tryEnableWriting && !disk.WrittingEnabled) {
+			if (_tryEnableWriting && !disk.isWrittingEnabled) {
 				[_errorLabel setHidden:NO];
 				[_errorLabel setStringValue:
           [[NSBundle bundleForClass:[self class]]
@@ -311,7 +311,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	BOOL exist = NO;
 	for (ui = 0 ; ui < [_disks count] ; ++ui) {
 		NTFSDisk * disk = [_disks objectAtIndex:ui];
-		if ([disk.Name isEqualToString:name]) {
+		if ([disk.name isEqualToString:name]) {
 			[disk updateStatus];
 			exist = YES;
 			break;
@@ -344,7 +344,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	if ([info rangeOfString:@"NTFS"].location != NSNotFound) { // NTFS disk
 		NTFSDisk * disk = [[NTFSDisk alloc] initWithDiskutilInfo:info];
 		[_disks addObject:disk];
-		NSLog(@"disk name = %@", disk.Name);
+		NSLog(@"disk name = %@", disk.name);
 	}
 }
 

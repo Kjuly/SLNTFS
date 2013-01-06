@@ -83,16 +83,16 @@ void * handleDisk_Thread(void * arg) {
 	FileSystemTableParser * fstabParser = [[FileSystemTableParser alloc] initWithCopyPath:@"./"];
 	[fstabParser fstabRead];
   // Not enabled on NAME
-	if (![fstabParser isWrittingEnabledOn:disk.Name]) {
+	if (![fstabParser isWrittingEnabledOn:disk.name]) {
     // Nor on UUID
-		if (![fstabParser isWrittingEnabledOn:disk.UUID]) {
+		if (![fstabParser isWrittingEnabledOn:disk.uuid]) {
 			NSDictionary * SLNTFSpref =
         [NSDictionary dictionaryWithContentsOfFile:@"/Library/Preferences/slntfspref_copy.plist"];
 			if (SLNTFSpref) {
 				void (^enableWriting)() = ^{
-					if (![disk.UUID isEqualToString:@""])
-						[fstabParser addUUIDline:disk.UUID]; // Add UUID line
-					[fstabParser addLABELline:disk.Name]; // Also add LABEL line
+					if (![disk.uuid isEqualToString:@""])
+						[fstabParser addUUIDline:disk.uuid]; // Add UUID line
+					[fstabParser addLABELline:disk.name]; // Also add LABEL line
 					if (![fstabParser save])
 						[fstabParser restoreBackup];
 					[disk unmount];
@@ -107,25 +107,25 @@ void * handleDisk_Thread(void * arg) {
 					NSString * btnDismiss = nil;
 					NSString * btnEnable  = nil;
 					if ([_defaultLang isEqualToString:@"de"]) {
-						title      = [NSString stringWithFormat:@"NTFS-Volume wurde erkann (%@)", disk.Name];
+						title      = [NSString stringWithFormat:@"NTFS-Volume wurde erkann (%@)", disk.name];
 						text       = @"Schreibzugriff aktivieren ?";
 						btnEnable  = @"Ja";
 						btnDismiss = @"Nein";
 					}
 					else if ([_defaultLang isEqualToString:@"fr"]) {
-						title      = [NSString stringWithFormat:@"Détection d'un disque NTFS (%@)", disk.Name];
+						title      = [NSString stringWithFormat:@"Détection d'un disque NTFS (%@)", disk.name];
 						text       = @"Voulez vous activer l'écriture sur celui-ci ?";
 						btnEnable  = @"Activer";
 						btnDismiss = @"Ignorer";
 					}
 					else if ([_defaultLang isEqualToString:@"es"]) {
-						title      = [NSString stringWithFormat:@"Detección de un disco NTFS (%@)", disk.Name];
+						title      = [NSString stringWithFormat:@"Detección de un disco NTFS (%@)", disk.name];
 						text       = @"Quieres activar la escritura sobre este ?";
 						btnEnable  = @"Activar";
 						btnDismiss = @"Ignorar";
 					}
 					else {
-						title      = [NSString stringWithFormat:@"NTFS Disk mounted (%@)", disk.Name];
+						title      = [NSString stringWithFormat:@"NTFS Disk mounted (%@)", disk.name];
 						text       = @"Would you like to enable writing on it ?";
 						btnEnable  = @"Enable";
 						btnDismiss = @"Dismiss";

@@ -33,17 +33,17 @@ typedef enum {P_ATA, P_SATA, P_USB, P_FIREWIRE, P_ESATA, P_UNKNOW} VolProtocol;
 	DADiskRef _disk;
 }
 
-@property (nonatomic, readonly) NSString * Name;
-@property (nonatomic, readonly) NSString * UUID;
-@property (nonatomic, readonly) NSString * DeviceIdentifier;
-@property (nonatomic, readonly) NSString * DeviceNode;
-@property (nonatomic, readonly) NSString * Device;
-@property (nonatomic, readonly) NSString * MountPoint;
-@property (nonatomic, readonly) VolProtocol Protocol;
-@property (nonatomic, readonly) BOOL Internal;
-@property (nonatomic, readonly) BOOL Ejectable;
-@property (nonatomic, readonly) BOOL Mounted;
-@property (nonatomic, readwrite) NSUInteger WrittingEnabled;
+@property (nonatomic, readonly) NSString * name;
+@property (nonatomic, readonly) NSString * uuid;
+@property (nonatomic, readonly) NSString * deviceIdentifier;
+@property (nonatomic, readonly) NSString * deviceNode;
+@property (nonatomic, readonly) NSString * device;
+@property (nonatomic, readonly) NSString * mountPoint;
+@property (nonatomic, readonly) VolProtocol protocol;
+@property (nonatomic, readonly) BOOL isInternal;
+@property (nonatomic, readonly) BOOL isEjectable;
+@property (nonatomic, readonly) BOOL isMounted;
+@property (nonatomic, readwrite) NSUInteger isWrittingEnabled;
 
 #pragma mark -
 #pragma mark Constructors / Destructors
